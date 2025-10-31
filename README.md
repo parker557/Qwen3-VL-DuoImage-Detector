@@ -254,6 +254,7 @@ python qwen3_8b_test2.py --model_path /models/Qwen3-VL-8B-Instruct \
 # 3. 查看结果
 ls output/ csv_output/
 ```
+## 关键词
 功能/任务类
 
 以图找同类、以图搜图、参考图匹配、同类目标检测、目标定位、边界框标注、批量标注、可视化标注、CSV导出
