@@ -1,0 +1,74 @@
+name: Qwen3-VL Batch Detection
+
+on: [push]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 5
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.12'
+        
+    - name: Add conda to system path
+      run: |
+        echo $CONDA/bin >> $GITHUB_PATH
+        
+    - name: Install dependencies
+      run: |
+        conda env update --file environment.yml --name base
+        
+    - name: Run basic script test
+      run: |
+        python -c "
+import torch
+import transformers
+from PIL import Image
+import os
+print('✓ PyTorch version:', torch.__version__)
+print('✓ Transformers version:', transformers.__version__)
+print('✓ PIL version:', Image.__version__)
+print('✓ Dependencies loaded successfully')
+"
+        
+    - name: Test script syntax
+      run: |
+        python -m py_compile qwen3_8b_test2.py
+        echo "✓ Script syntax is valid"
+        
+    - name: Test CSV converter
+      run: |
+        python -c "
+import openpyxl
+import csv
+print('✓ OpenPyXL version:', openpyxl.__version__)
+print('✓ CSV module available')
+"
+        
+    - name: Verify model dependencies
+      run: |
+        python -c "
+try:
+    from transformers import AutoModel, AutoProcessor
+    print('✓ Transformers AutoModel/AutoProcessor available')
+except ImportError as e:
+    print('✗ Transformers import failed:', e)
+    
+try:
+    import flash_attn
+    print('✓ Flash Attention available')
+except ImportError as e:
+    print('⚠ Flash Attention not available:', e)
+    
+try:
+    import xformers
+    print('✓ XFormers available')
+except ImportError as e:
+    print('⚠ XFormers not available:', e)
+"
