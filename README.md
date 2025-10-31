@@ -254,4 +254,47 @@ python qwen3_8b_test2.py --model_path /models/Qwen3-VL-8B-Instruct \
 # 3. 查看结果
 ls output/ csv_output/
 ```
-以照片输入提示词的方式标注照片
+功能/任务类
+
+以图找同类、以图搜图、参考图匹配、同类目标检测、目标定位、边界框标注、批量标注、可视化标注、CSV导出
+
+image-based matching, reference-based detection, same-class detection, object localization, bounding box annotation, batch annotation, visualization, CSV export
+
+提示词/交互方式
+
+照片+提示词标注、基于提示词的检测、文本驱动检测、场景化提示词、可定制提示词、编号场景提示词
+
+prompt-guided detection, text-prompted detection, scene prompts, customizable prompts, prompt engineering for vision
+
+多模态/模型相关
+
+多模态视觉、视觉语言模型、Qwen3-VL、Qwen3-VL-8B-Instruct、开源大模型、本地推理
+
+multimodal vision, vision-language model, VLM, Qwen3-VL, local inference, offline inference
+
+技术关键词（检索/学术风）
+
+视觉指引、视觉对齐、视觉定位、跨图检索、特征相似度、归一化坐标、像素坐标转换、可重复试验
+
+visual grounding, referring image, cross-image retrieval, similarity matching, normalized coords, pixel conversion, reproducibility
+
+工程/流程
+
+自动配对、批处理、性能评测、显存优化、Flash-Attn、SDPA、可配置参数、模型路径缓存、状态文件、日志
+
+auto pairing, batch processing, benchmarking, memory optimization, flash attention, SDPA, configurable params, model path cache, state file, logging
+
+典型场景（长尾短语，更容易被搜到）
+
+“以照片输入提示词的方式标注照片”
+
+“参考图引导在大图中找相同物体”
+
+“批量将归一化坐标转换为像素并可视化”
+
+“用Qwen3-VL做以图找同类并输出bbox”
+
+“场景化提示词驱动的目标检测批处理”
+
+“本地多模态模型的离线批量标注管线”
+
