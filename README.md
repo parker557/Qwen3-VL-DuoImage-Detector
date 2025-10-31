@@ -254,7 +254,4 @@ python qwen3_8b_test2.py --model_path /models/Qwen3-VL-8B-Instruct \
 # 3. 查看结果
 ls output/ csv_output/
 ```
-
----
-
-如需我把这份 README 直接改成 markdown 文件并附上下载链接，也可以帮你生成。
+以照片输入提示词的方式标注照片
